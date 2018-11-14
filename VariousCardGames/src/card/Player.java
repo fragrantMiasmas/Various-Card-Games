@@ -8,8 +8,8 @@ public class Player {
 	String name;
 	int number;  //by index
 	int rank;
-	ArrayList<Card> hand;
-	Stack<Card> pile;
+	ArrayList<Card> hand = new ArrayList<>();
+	Stack<Card> pile = new Stack();
 	
 	public String getName() {
 		return name;

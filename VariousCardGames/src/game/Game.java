@@ -8,21 +8,26 @@ import card.Player;
 
 public class Game {
 
-	ArrayList<Player> cardPlayers;
-	Deck gameDeck = new Deck();
+	private ArrayList<Player> cardPlayers = new ArrayList<Player>();
+	private Deck gameDeck = new Deck();
 	
-	public void addPlayer() {
-		
+	public void populate(int amountofplayers){
+		for(int i=0;i<amountofplayers;i++) {
+			Player newPlayer = new Player();
+			newPlayer.setNumber(i+1);
+			cardPlayers.add(newPlayer);
+		}
 	}
-	public void deal(ArrayList<Card> deck, Player[] cardPlayers) {
+	public void addPlayer(Player p) {
+		cardPlayers.add(p);
+	}
+	public void deal(ArrayList<Card> deck, 	ArrayList<Player> cardPlayers) {
 		
 		for(int i=0;i<deck.size();i++) {
 			Card next = deck.get(i);
-			
 			//each player gets a card
-			for(int j=0;j<cardPlayers.length;j++) {
-				cardPlayers[j].getHand().add(next);
-			}
+			int playernum = (i+1)%cardPlayers.size();	
+			cardPlayers.get(playernum).getHand().add(next);
 		}
 	}
 

@@ -27,7 +27,7 @@ public class Deck {
 	}
 	public  ArrayList<Card> createDeck() {
 		
-		 myDeck = new ArrayList<>();
+		 myDeck = new ArrayList<Card>();
 		
 		for(int i=0;i<52; i++) {
 			
